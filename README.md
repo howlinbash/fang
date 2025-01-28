@@ -28,28 +28,44 @@ store pkglist in .notes so backups can recreate packages installed
 use the /mnt/shared/src/dotfiles repo to commit changes from a local fs.
 - add a file on bass
 
+howl
+drop
+bud
+todo
+
+- main
+  - server
+    - the
+  - worker
+    - howlin
+    - bass
 
 ## main
-.config/terminator/config
-.config/polybar/config.ini
 
 ## server
 
 ## the
 .local/share/ranger/bookmarks
+.local/bin/pac 
 
 ## worker
 .local/share/ranger/bookmarks
 .local/bin/songs-loc.csv
+.local/bin/howl 
+.local/bin/drop 
+.local/bin/bud 
+.local/bin/pac 
 
 ## howlin
 .config/terminator/config
 .local/config/gtk-3.0/bookmarks
 .local/share/ranger/bookmarks
+.local/bin/todo 
 
 ## bass
 .local/config/gtk-3.0/bookmarks
 .local/share/ranger/bookmarks
+.local/bin/todo 
 
 ## next
 track firefox bookmars
