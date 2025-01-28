@@ -20,3 +20,36 @@ it needs to pull the correct branches before any commits
 The correct command is pacman -Qqtt
 
 The take inventory command needs to take top level packages into account
+
+store pkglist in .notes so backups can recreate packages installed
+- later handle this with pac
+- rl: could spit out diff of untracked packages
+
+use the /mnt/shared/src/dotfiles repo to commit changes from a local fs.
+- add a file on bass
+
+
+## main
+.config/terminator/config
+.config/polybar/config.ini
+
+## server
+
+## the
+.local/share/ranger/bookmarks
+
+## worker
+.local/share/ranger/bookmarks
+.local/bin/songs-loc.csv
+
+## howlin
+.config/terminator/config
+.local/config/gtk-3.0/bookmarks
+.local/share/ranger/bookmarks
+
+## bass
+.local/config/gtk-3.0/bookmarks
+.local/share/ranger/bookmarks
+
+## next
+track firefox bookmars
