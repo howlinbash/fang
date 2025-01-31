@@ -19,7 +19,6 @@ gparted
 htop
 i3-wm
 i3blocks
-i3lock-color
 i3status
 keychain
 ncdu
