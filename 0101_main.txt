@@ -3,7 +3,6 @@ adobe-source-han-sans-jp-fonts
 adobe-source-han-sans-kr-fonts
 arandr
 arc-gtk-theme
-arc-x-icons-theme
 aspell-en
 autorandr
 awesome-terminal-fonts
@@ -31,11 +30,8 @@ scrot
 sxiv
 terminator
 the_silver_searcher
-ttf-all-the-icons
-ttf-icomoon-feather
 ttf-inconsolata-nerd
 ttf-jetbrains-mono-nerd
-ttf-mac-fonts
 ttf-material-design-icons
 ttf-nerd-fonts-symbols
 ttf-nerd-fonts-symbols-mono
@@ -43,4 +39,5 @@ ttf-nunito
 ttf-roboto
 ttf-sourcecodepro-nerd
 vlc
+xclip
 yt-dlp

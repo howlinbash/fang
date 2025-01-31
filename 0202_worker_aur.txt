@@ -1,0 +1,3 @@
+bruno-bin
+nvm
+zoom

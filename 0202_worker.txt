@@ -1,5 +1,4 @@
 android-file-transfer
-bruno-bin
 calibre
 cheese
 chromium
@@ -10,7 +9,6 @@ gnome-font-viewer
 inkscape
 libreoffice-fresh
 mpv
-nvm
 pdfarranger
 pinta
 postgresql
@@ -19,4 +17,3 @@ qjackctl
 torbrowser-launcher
 transmission-gtk
 xfce4-screenshooter
-zoom

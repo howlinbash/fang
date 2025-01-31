@@ -1,5 +1,3 @@
-grub-tools
-grub2-theme-endeavouros
 intel-gpu-tools
 intel-media-driver
 signal-desktop
