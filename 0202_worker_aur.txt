@@ -1,3 +1,6 @@
+ttf-all-the-icons
+ttf-icomoon-feather
+arc-x-icons-theme
 bruno-bin
 nvm
 zoom
