@@ -33,6 +33,9 @@ def print_help(exit=0):
     print("       -h")
     print("              list this menu")
     print("")
+    print("       -i")
+    print("              Initialise newly cloned repo so branches track origin")
+    print("")
     print("       -s")
     print("              Only commit staged files")
     sys.exit(exit)
@@ -44,6 +47,12 @@ def too_many_args():
 def no_commit_msg():
     print_error("We need a commit message")
     sys.exit(1)
+
+def track_branches(tree):
+    for node, children in tree.items():
+        if node != "main":
+            run(["git", "checkout", "-b", node, "origin/" + node])
+        track_branches(children)
 
 def parse_args(args ):
     if not args[1]:
@@ -60,6 +69,10 @@ def parse_args(args ):
 
             ## Only commit staged files
             return [args[2], True]
+        elif args[1][1] == "i":
+            track_branches(git_branches)
+            run(["git", "checkout", "main"])
+            sys.exit(0)
         else: 
             print_error("Invalid argument")
             print("")
