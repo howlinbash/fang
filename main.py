@@ -110,37 +110,48 @@ def parse_args(args ):
     if args[1][0] == "-":
         if args[1][1] == "h":
             print_help()
+
+        # Only commit files that have been manually staged
         elif args[1][1] == "s":
             if len(args) < 3:
                 no_commit_msg()
             if len(args) > 3:
                 too_many_args()
-
-            ## Only commit staged files
             return [args[2], True]
+
+        # Initialise dotfiles repo by ensuring all branches track their origins
         elif args[1][1] == "i":
             track_branches(git_branches)
             run(["git", "checkout", "main"])
             sys.exit(0)
+
+        # Pull all branches to ensure dotfiles is up to date
         elif args[1][1] == "p":
             run(["git", "checkout", "main"])
             pull_branches(git_branches)
             run(["git", "checkout", "main"])
             sys.exit(0)
+
         else: 
             print_error("Invalid argument")
             print("")
             print_help(1)
+
+    ## Default! Commit all modified tracked files.
     else:
         if len(args) > 2:
             too_many_args()
-
-        ## Simple commit message without options
         return [args[1]]
 
 def main():
     args = parse_args(sys.argv)
     branch = check_output(['git', 'branch', '--show-current'], text=True).strip()
+
+    # Ensure all branches are up to date before commit
+    if branch != "main":
+        run(["git", "checkout", "main"])
+    pull_branches(git_branches)
+
     commit(git_branches, branch, args)
     run(['git', 'checkout', branch])
     
