@@ -1,71 +1,86 @@
 
-stores definitive pacman lists for
-- base
-- server
-- worker
-- leafs
-Can diff HEAD against tree (what is tracked verse what is currently installed)
-- because currentlyInstalled is dynamic don't cache it anywhere. just use pacman
-    command when the info is needed
-If I decide i like a package and always want to be installed with config, i can
-save it. Wherever I decide to put it (base/server/worker/leaf) pac will make the
-commit to the correct branch and merge update all the other branches so all the
-upstreams that need it, get it and we leave the command on the branch we started
-on
-It is from this repo that config gets it's package download list.
-It lives @ mnt/share/src/pac
-it is symlinked to each machine on install
-it needs to pull the correct branches before any commits
 
-The correct command is pacman -Qqtt
+Fang
+====
 
-The take inventory command needs to take top level packages into account
+Fang maintains the seaworthiness of the individuals in the Howlin Fleet. He tracks the packages installed and manages the dotfiles of each vessel and the fleet at large. 
 
-store pkglist in .notes so backups can recreate packages installed
-- later handle this with pac
-- rl: could spit out diff of untracked packages
+Don't be put off by his cranky ways; He's a good lad and a he does a fine job.
 
-use the /mnt/shared/src/dotfiles repo to commit changes from a local fs.
-- add a file on bass
 
-howl
-drop
-bud
-todo
+## Usage
 
-- main
-  - server
-    - the
-  - worker
-    - howlin
-    - bass
+Fleet branches are managed from an unconnected dotfiles repo. The updates are
+then pulled from each respective host as and when they want the latest updates.
 
-## main
+Updates are generally not commited from the individual hosts, rather they are commited
+from the unconnect dotfiles repo at the appropriate location in the tree.
 
-## server
+If they *are* committed from the individual host, that change must only be relevant
+to that host and it must be pushed to remote immediately.
 
-## the
-.local/share/ranger/bookmarks
-.local/bin/pac 
 
-## worker
-.local/share/ranger/bookmarks
-.local/bin/songs-loc.csv
-.local/bin/howl 
-.local/bin/drop 
-.local/bin/bud 
-.local/bin/pac 
+### Initialising
 
-## howlin
-.config/terminator/config
-.local/config/gtk-3.0/bookmarks
-.local/share/ranger/bookmarks
-.local/bin/todo 
+New unconnected dotfile repos are initialised with 
 
-## bass
-.local/config/gtk-3.0/bookmarks
-.local/share/ranger/bookmarks
-.local/bin/todo 
+    fang -i
 
-## next
-track firefox bookmars
+This checksout each branch locally and tracks it with origin so it is ready to
+accept any changes to come.
+
+
+### Default
+
+By default 
+
+    fang
+
+will pull any recent changes from remote and then add all unignored files to
+staging and commit them. He will then checkout all downstream branches merge the
+commit and push the updated branch to origin. Before this command 
+
+
+### Selective commiting
+
+If you for whatever reason a host has some untracked changes that are not to be commited by fang on this occasion, he can be instructed to only commit files that are currently staged. 
+
+    fang -s
+
+Outside of this nuance, the command works exactly like the default path.
+
+
+### Pulling downstream changes
+
+If an unconnected dotfiles repo gets out of sync with origin, run
+
+    fang -p
+
+and he will pull all the latest changes from each branch.
+
+
+## Fanglists
+
+Fang is also the proud guardian of the fanglists. Each list details which top
+level pakaages are installed on which host so that they can be recreated on
+command.
+
+Just like with the Howlin Dotfiles the lists are mapped with a tree heirarchy
+with the exception of `_aur` lists, which are extracted from their parent so
+that howlos can compile them from the aur without passing makepkg root
+privilages.
+
+The current structure is
+- base [installs from endeavourOS]
+  - main
+    - server
+      - host leaves
+    - worker
+      - host leaves
+
+
+## RoadMap
+
+- Output all untracked installed packages on `source .bashrc`.
+  - use pacman -Qqtt
+  - use a concat of all packages in pac lists
