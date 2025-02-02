@@ -148,10 +148,12 @@ def main():
     branch = check_output(['git', 'branch', '--show-current'], text=True).strip()
 
     # Ensure all branches are up to date before commit
-    if branch != "main":
-        run(["git", "checkout", "main"])
+    run(["git", "stash"])
+    run(["git", "checkout", "main"])
     pull_branches(git_branches)
 
+    run(['git', 'checkout', branch])
+    run(["git", "stash", "pop"])
     commit(git_branches, branch, args)
     run(['git', 'checkout', branch])
     
