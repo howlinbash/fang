@@ -36,6 +36,9 @@ def print_help(exit=0):
     print("       -i")
     print("              Initialise newly cloned repo so branches track origin")
     print("")
+    print("       -p")
+    print("              Pull downstream branches")
+    print("")
     print("       -s")
     print("              Only commit staged files")
     sys.exit(exit)
@@ -48,41 +51,18 @@ def no_commit_msg():
     print_error("We need a commit message")
     sys.exit(1)
 
+def pull_branches(tree):
+    for node, children in tree.items():
+        if node != "main":
+            run(["git", "checkout", node])
+            run(["git", "pull"])
+        pull_branches(children)
+
 def track_branches(tree):
     for node, children in tree.items():
         if node != "main":
             run(["git", "checkout", "-b", node, "origin/" + node])
         track_branches(children)
-
-def parse_args(args ):
-    if not args[1]:
-        no_commit_msg()
-
-    if args[1][0] == "-":
-        if args[1][1] == "h":
-            print_help()
-        elif args[1][1] == "s":
-            if len(args) < 3:
-                no_commit_msg()
-            if len(args) > 3:
-                too_many_args()
-
-            ## Only commit staged files
-            return [args[2], True]
-        elif args[1][1] == "i":
-            track_branches(git_branches)
-            run(["git", "checkout", "main"])
-            sys.exit(0)
-        else: 
-            print_error("Invalid argument")
-            print("")
-            print_help(1)
-    else:
-        if len(args) > 2:
-            too_many_args()
-
-        ## Simple commit message without options
-        return [args[1]]
 
 def approve_staged(branch):
     run(['git', 'log', '--graph', '--oneline', '--all', '-10'])
@@ -122,6 +102,41 @@ def commit(tree, branch, args):
             merge_downstreams(children, node, args[0])
         else:
             commit(children, branch, args)
+
+def parse_args(args ):
+    if not args[1]:
+        no_commit_msg()
+
+    if args[1][0] == "-":
+        if args[1][1] == "h":
+            print_help()
+        elif args[1][1] == "s":
+            if len(args) < 3:
+                no_commit_msg()
+            if len(args) > 3:
+                too_many_args()
+
+            ## Only commit staged files
+            return [args[2], True]
+        elif args[1][1] == "i":
+            track_branches(git_branches)
+            run(["git", "checkout", "main"])
+            sys.exit(0)
+        elif args[1][1] == "p":
+            run(["git", "checkout", "main"])
+            pull_branches(git_branches)
+            run(["git", "checkout", "main"])
+            sys.exit(0)
+        else: 
+            print_error("Invalid argument")
+            print("")
+            print_help(1)
+    else:
+        if len(args) > 2:
+            too_many_args()
+
+        ## Simple commit message without options
+        return [args[1]]
 
 def main():
     args = parse_args(sys.argv)
