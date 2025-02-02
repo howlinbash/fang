@@ -17,12 +17,14 @@ feh
 font-manager
 gparted
 htop
-i3-wm
 i3blocks
 i3status
+i3-wm
 keychain
 ncdu
 neovim
+net-tools
+nfs-utils
 papirus-icon-theme
 polybar
 ranger
