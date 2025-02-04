@@ -26,6 +26,7 @@ neovim
 net-tools
 nfs-utils
 papirus-icon-theme
+picom
 polybar
 ranger
 rofi-calc
@@ -34,6 +35,7 @@ scrot
 sxiv
 terminator
 the_silver_searcher
+tree
 ttf-inconsolata-nerd
 ttf-jetbrains-mono-nerd
 ttf-material-design-icons

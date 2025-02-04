@@ -2,6 +2,5 @@ arc-x-icons-theme
 bruno-bin
 i3lock-color
 nvm
-ttf-all-the-icons
 ttf-icomoon-feather
 zoom
