@@ -11,7 +11,8 @@ git_branches = {
         },
         "worker": {
             "bass": {},
-            "howlin": {}
+            "howlin": {},
+            "wolf": {}
         }
     }
 }
