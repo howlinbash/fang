@@ -127,6 +127,7 @@ unzip
 usb_modeswitch
 usbutils
 vi
+vim
 wget
 xfsprogs
 xl2tpd
