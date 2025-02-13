@@ -3,6 +3,7 @@ calibre
 cheese
 chromium
 elisa
+evince
 flatpak
 gnome-calculator
 gnome-font-viewer

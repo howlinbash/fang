@@ -88,6 +88,7 @@ networkmanager-openconnect
 networkmanager-openvpn
 nfs-utils
 nilfs-utils
+nodejs
 noto-fonts-cjk
 noto-fonts-extra
 nss-mdns
