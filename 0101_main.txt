@@ -44,6 +44,7 @@ ttf-nerd-fonts-symbols-mono
 ttf-nunito
 ttf-roboto
 ttf-sourcecodepro-nerd
+unison
 vlc
 xclip
 yt-dlp
