@@ -1,3 +1,7 @@
 ardour
 mixxx
 nvidia
+nvidia-settings
+nvidia-utils
+pwvucontrol
+qpwgraph

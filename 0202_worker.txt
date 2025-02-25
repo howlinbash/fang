@@ -5,6 +5,7 @@ chromium
 elisa
 evince
 flatpak
+gimp
 gnome-calculator
 gnome-font-viewer
 inkscape

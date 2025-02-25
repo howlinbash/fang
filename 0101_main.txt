@@ -35,6 +35,10 @@ scrot
 sxiv
 terminator
 the_silver_searcher
+thunar-archive-plugin
+thunar-media-tags-plugin
+thunar-volman
+tmux
 tree
 ttf-inconsolata-nerd
 ttf-jetbrains-mono-nerd
@@ -44,7 +48,9 @@ ttf-nerd-fonts-symbols-mono
 ttf-nunito
 ttf-roboto
 ttf-sourcecodepro-nerd
+tumbler
 unison
 vlc
 xclip
 yt-dlp
+zip

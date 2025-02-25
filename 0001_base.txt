@@ -71,8 +71,6 @@ libwnck3
 linux
 linux-firmware
 linux-headers
-linux-lts
-linux-lts-headers
 logrotate
 lsb-release
 lsscsi
