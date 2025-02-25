@@ -3,4 +3,5 @@ bruno-bin
 i3lock-color
 nvm
 ttf-icomoon-feather
+unison
 zoom
